@@ -13,11 +13,16 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-/** Routas Servicios  */
+/** Rutas Servicios  */
+
+const registroForm  = require('./funcionalidad/rutas/registroForm');
+
+router.use('/registroForm', registroForm);
+
 router.get('/', (req, res) => {
   res.send('Hello World!')
 })
-/** FIN Routas Servicios  */
+/** FIN Rutas Servicios  */
 
 /**Conexion DB Mongoose */
 mongoose.connect(process.env.DB_SERVER, {useNewUrlParser: true, useUnifiedTopology: true});
